@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/signal"
 
+	ethereum_watcher "github.com/diveinto/ethereum-watcher"
 	"github.com/diveinto/ethereum-watcher/blockchain"
 	"github.com/diveinto/ethereum-watcher/plugin"
 	"github.com/diveinto/ethereum-watcher/rpc"

@@ -39,6 +39,18 @@ func (rpc EthBlockChainRPC) getBlockByNum(num uint64, withTx bool) (blockchain.B
 	return &blockchain.EthereumBlock{b}, err
 }
 
+func (rpc EthBlockChainRPC) GetTransaction(txHash string) (blockchain.Transaction, error) {
+	tx, err := rpc.rpcImpl.EthGetTransactionByHash(txHash)
+	if err != nil {
+		return nil, err
+	}
+	if tx == nil {
+		return nil, errors.New("nil tx")
+	}
+
+	return &blockchain.EthereumTransaction{tx}, err
+}
+
 func (rpc EthBlockChainRPC) GetTransactionReceipt(txHash string) (blockchain.TransactionReceipt, error) {
 	receipt, err := rpc.rpcImpl.EthGetTransactionReceipt(txHash)
 	if err != nil {

@@ -43,6 +43,19 @@ func (rpc EthBlockChainRPCWithRetry) GetLiteBlockByNum(num uint64) (rst blockcha
 	return
 }
 
+func (rpc EthBlockChainRPCWithRetry) GetTransactionByHash(txHash string) (tx blockchain.Transaction, err error) {
+	for i := 0; i <= rpc.maxRetryTimes; i++ {
+		tx, err = rpc.EthBlockChainRPC.GetTransaction(txHash)
+		if err == nil {
+			break
+		} else {
+			time.Sleep(time.Duration(500*(i+1)) * time.Millisecond)
+		}
+	}
+
+	return
+}
+
 func (rpc EthBlockChainRPCWithRetry) GetTransactionReceipt(txHash string) (rst blockchain.TransactionReceipt, err error) {
 	for i := 0; i <= rpc.maxRetryTimes; i++ {
 		rst, err = rpc.EthBlockChainRPC.GetTransactionReceipt(txHash)
@@ -68,6 +81,7 @@ func (rpc EthBlockChainRPCWithRetry) GetCurrentBlockNum() (rst uint64, err error
 
 	return
 }
+
 func (rpc EthBlockChainRPCWithRetry) GetLogs(
 	fromBlockNum, toBlockNum uint64,
 	address string,
