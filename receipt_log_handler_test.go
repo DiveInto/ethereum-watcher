@@ -2,10 +2,11 @@ package ethereum_watcher
 
 import (
 	"context"
-	"github.com/HydroProtocol/ethereum-watcher/rpc"
-	"github.com/HydroProtocol/ethereum-watcher/structs"
-	"github.com/sirupsen/logrus"
 	"testing"
+
+	"github.com/diveinto/ethereum-watcher/rpc"
+	"github.com/diveinto/ethereum-watcher/structs"
+	"github.com/sirupsen/logrus"
 )
 
 func TestListenForReceiptLogTillExit(t *testing.T) {

@@ -2,10 +2,11 @@ package rpc
 
 import (
 	"errors"
-	"github.com/HydroProtocol/ethereum-watcher/blockchain"
+	"strconv"
+
+	"github.com/diveinto/ethereum-watcher/blockchain"
 	"github.com/onrik/ethrpc"
 	"github.com/sirupsen/logrus"
-	"strconv"
 )
 
 type EthBlockChainRPC struct {

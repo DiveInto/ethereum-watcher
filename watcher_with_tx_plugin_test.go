@@ -3,10 +3,11 @@ package ethereum_watcher
 import (
 	"context"
 	"fmt"
-	"github.com/HydroProtocol/ethereum-watcher/plugin"
-	"github.com/HydroProtocol/ethereum-watcher/structs"
-	"github.com/sirupsen/logrus"
 	"testing"
+
+	"github.com/diveinto/ethereum-watcher/plugin"
+	"github.com/diveinto/ethereum-watcher/structs"
+	"github.com/sirupsen/logrus"
 )
 
 func TestTxHashPlugin(t *testing.T) {

@@ -3,12 +3,13 @@ package blockchain
 import (
 	"errors"
 	"fmt"
-	"github.com/HydroProtocol/ethereum-watcher/utils"
+	"math/big"
+	"strconv"
+
+	"github.com/diveinto/ethereum-watcher/utils"
 	"github.com/labstack/gommon/log"
 	"github.com/onrik/ethrpc"
 	"github.com/shopspring/decimal"
-	"math/big"
-	"strconv"
 )
 
 type BlockChain interface {
